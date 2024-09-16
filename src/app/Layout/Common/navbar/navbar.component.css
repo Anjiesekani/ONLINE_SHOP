@@ -1,0 +1,61 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  background-color: #42d4a9;
+}
+.nav {
+  margin: 0 auto;
+  width: 90%;
+}
+.nav_list {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 0;
+}
+.nav-item {
+  font-size: 1rem;
+  font-family: sans-serif;
+  color: whitesmoke;
+}
+.nav-link {
+  text-decoration: none;
+  color: black;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px; /* Space for the underline */
+}
+/* .active {
+  font-size: 1.5rem;
+  font-weight: bold;
+} */
+
+/* .nav-link:hover, */
+.nav-link.active {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.nav-link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px; /* Thickness of the underline */
+  background-color: black; /* Color of the underline */
+  transition: width 0.3s ease; /* Animation duration and easing */
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+  width: 100%;
+}
