@@ -2,10 +2,11 @@ import { inject, Injectable, OnInit } from '@angular/core';
 import {
   HttpClient,
   HttpErrorResponse,
+  HttpEventType,
   HttpHeaders,
 } from '@angular/common/http';
 import { Product } from '../Model/model';
-import { catchError, map, Observable, Subject, throwError } from 'rxjs';
+import { catchError, map, Observable, Subject, tap, throwError } from 'rxjs';
 import { LoginService } from './login-service';
 
 @Injectable({
@@ -157,7 +158,7 @@ export class ProductService {
     return this.http
       .get<{ [key: string]: { Product } }>(
         'https://online-project-cfbc7-default-rtdb.firebaseio.com/task.json',
-        { headers: headers }
+        { headers: headers, observe: 'body' }
       )
       .pipe(
         map((response) => {
@@ -189,9 +190,16 @@ export class ProductService {
   DeleteProduct(ID: string) {
     return this.http
       .delete(
-        `https://online-project-cfbc7-default-rtdb.firebaseio.com/task/${ID}.json`
+        `https://online-project-cfbc7-default-rtdb.firebaseio.com/task/${ID}.json`,
+        { observe: 'events' }
       )
       .pipe(
+        tap((event) => {
+          console.log(event);
+          if (event.type === HttpEventType.Response) {
+            alert('Deleted Successful');
+          }
+        }),
         catchError((err) => {
           const errorObj = {
             statusCode: err.status,

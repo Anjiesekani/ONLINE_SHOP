@@ -3,11 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HomePageModule } from './Layout/HomePage.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AuthInterceptorService } from './Services/auth-interceptor.service';
+import { LoggingInterceptorService } from './Services/logging-interceptor.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,7 +31,18 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
     AngularFireAuthModule,
     AngularFireDatabaseModule,
   ],
-  providers: [provideAnimationsAsync()],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoggingInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
