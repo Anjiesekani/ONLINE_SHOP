@@ -1,0 +1,101 @@
+<div class="container form-shadow" [ngClass]="reactiveForm.status">
+  <header>Data Form</header>
+  <form [formGroup]="reactiveForm" (ngSubmit)="onFormSubmitted()" class="form">
+    <div class="input-box">
+      <label>Product Name</label>
+      <input type="text" formControlName="productName" />
+      <small *ngIf="reactiveForm.get('productName').invalid && reactiveForm.get('productName').touched">Product name is
+        required</small>
+    </div>
+
+    <div class="input-box">
+      <label>ID</label>
+      <input type="text" formControlName="id" />
+      <!-- <small *ngIf="reactiveForm.get('id').invalid && reactiveForm.get('id').touched">id is
+        required</small> -->
+    </div>
+
+    <div class="input-box">
+      <label>Description</label>
+      <textarea class="description" id="description" formControlName="description"></textarea>
+      <small *ngIf="reactiveForm.get('description').invalid && reactiveForm.get('description').touched">Description is
+        required</small>
+    </div>
+    <div class="input-box">
+      <label for="image">Image URL </label>
+
+      <input id="image" type="text" placeholder="Enter image URL" formControlName="image">
+      <small *ngIf="reactiveForm.get('image').invalid && reactiveForm.get('image').touched">Image URL is
+        required</small>
+    </div>
+
+    <div>
+
+      <div formGroupName="details">
+        <div class="input-box">
+          <label>Category</label>
+          <select class="select-box" id="category" formControlName="category">
+            <option value="building">building</option>
+            <option value="plumbing">plumbing</option>
+            <option value="decor">decor</option>
+            <option value="tools">tools</option>
+            <option value="equipments">equipments</option>
+            <option value="Painting">Painting</option>
+          </select>
+        </div>
+        <div class="input-box">
+          <label>Price</label>
+          <select class="select-box" id="price" formControlName="price">
+            <option value="300-500">300-500</option>
+            <option value="500-1200">500-1200</option>
+            <option value="1800-2500">1800-2500</option>
+            <option value="40000-60000">40000-60000</option>
+          </select>
+        </div>
+      </div>
+
+
+    </div>
+    <button type="submit" class="submit-btn">Submit</button>
+  </form>
+</div>
+
+
+
+<!-- <div class="container">
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="form">
+    <div class="input-box">
+      <label for="id">ID</label>
+      <input id="id" formControlName="id" type="text" />
+    </div>
+
+    <div class="input-box">
+      <label for="name">Name</label>
+      <input id="name" formControlName="name" type="text" />
+    </div>
+
+    <div class="input-box">
+      <label for="description">Description</label>
+      <textarea id="description" formControlName="description"></textarea>
+    </div>
+
+    <div class="input-box">
+      <label for="price">Price</label>
+      <select id="price" formControlName="price">
+        <option *ngFor="let option of priceOptions" [value]="option">{{ option }}</option>
+      </select>
+    </div>
+
+    <div class="input-box">
+      <label for="image">Image</label>
+      <input id="image" type="file" (change)="onFileChange($event)" />
+    </div>
+
+    <div class="input-box">
+      <label for="category">Category</label>
+      <input id="category" formControlName="category" type="text" />
+    </div>
+
+    <button type="submit" class="submit-btn">Submit</button>
+  </form>
+</div> -->

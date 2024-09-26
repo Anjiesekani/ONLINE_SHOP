@@ -1,0 +1,25 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+.header {
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+}
+.main {
+  padding-top: 9em; /* Same as the header height */
+  overflow: auto;
+  width: 100%; /* Full width of the viewport */
+  height: 100%; /* Full height of the container or viewport if needed */
+  z-index: 99; /* Ensure it appears behind the header */
+  background: #f0f0f0;
+  margin: 0 auto;
+}

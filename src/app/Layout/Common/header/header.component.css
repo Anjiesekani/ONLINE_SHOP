@@ -1,0 +1,56 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  background-color: #087f5b;
+}
+.nav_container {
+  margin: 0 auto;
+  width: 90%;
+  padding: 1em 0;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: whitesmoke;
+  /* border: 3px solid rgb(238, 255, 0); */
+  flex-grow: 1;
+}
+.row {
+  display: flex;
+}
+.row1 {
+  display: flex;
+  justify-content: space-between;
+}
+.nav_item {
+  align-items: center;
+  font-size: 1.2rem;
+  /* border: 3px solid pink; */
+  font-size: 1.2rem;
+}
+.nav_item + .nav_item {
+  margin-left: 1em;
+}
+
+.logo {
+  font-size: 1.2rem;
+  color: white;
+  margin-right: 1em;
+}
+
+.nav_list--secondary {
+  margin: 0 auto;
+}
+.clickable {
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}

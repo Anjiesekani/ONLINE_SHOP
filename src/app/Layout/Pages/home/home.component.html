@@ -1,0 +1,26 @@
+<div class="home -content">
+  <section>
+    <div class="container">
+      <div class="product-grid">
+
+        <h2 *ngIf="productList.length<1">NO product found</h2>
+        <mat-spinner *ngIf=" isLoading"></mat-spinner>
+        <ng-container *ngIf="!isLoading">
+          <div class="product-card" *ngFor="let product of productList">
+            <img class="product-image" src="{{product.image}}" alt="{{ product.image }}" />
+
+            <h3 class="product-name">{{product.productName}}</h3>
+            <p class="product-price">KSh{{product.details.price}}</p>
+            <button class="add-to-cart">Add to Cart</button>
+            <button title="delete" class="delete" (click)="deleteProduct(product.ID)">
+
+              <i class="ri-delete-bin-5-line"></i>
+            </button>
+            <!-- <button (click)="editProduct(product)"><i class="ri-edit-line"></i></button> -->
+          </div>
+        </ng-container>
+
+      </div>
+    </div>
+  </section>
+</div>

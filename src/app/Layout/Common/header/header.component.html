@@ -1,0 +1,26 @@
+<header class="container ">
+  <nav class="nav_container row1">
+    <nav class="logo">
+      <a href="#"><i class="ri-ancient-pavilion-line"></i></a>
+    </nav>
+    <nav class="nav">
+      <nav class="nav_list nav_list--secondary">
+        <input class="nav_item" type="text" placeholder="search" #inputSearch>
+        <button class="nav_item" (click)="onSearchClicked(inputSearch.value)">Search</button>
+      </nav>
+      <nav class="nav_list row">
+        <div class="nav_item row">
+          <div><i class="ri-user-3-line"></i></div>
+          <div>Login/Register</div>
+        </div>
+        <div class="nav_item row">
+          <div><i class="ri-shopping-cart-2-line"></i></div>
+          <div [routerLink]="'/notify'" class="clickable">
+            Add Products
+          </div>
+        </div>
+      </nav>
+    </nav>
+  </nav>
+</header>
+<app-navbar></app-navbar>
