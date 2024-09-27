@@ -14,12 +14,11 @@ export class NotifyComponent implements OnInit {
   formStatus: string = '';
   reactiveForm: FormGroup;
 
-  formData: Product;
-
   constructor(
     private fb: FormBuilder,
     private productService: ProductService,
-    private activeRoute: ActivatedRoute
+    private activeRoute: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -34,6 +33,23 @@ export class NotifyComponent implements OnInit {
       }),
     });
 
+    this.activeRoute.queryParams.subscribe((params) => {
+      if (params) {
+        this.reactiveForm.patchValue({
+          productName: params['name'],
+          id: params['id'],
+          description: params['description'] || '', // default to empty if not provided
+          image: params['image'],
+          ID: params['ID'],
+          details: {
+            category: params['category'] || 'building', // default category if not provided
+            price: params['price'],
+            // default price range if not provided
+          },
+        });
+      }
+    });
+
     // this.reactiveForm.statusChanges.subscribe((status) => {
     //   console.log(status);
     //   this.formStatus = status;
@@ -41,17 +57,33 @@ export class NotifyComponent implements OnInit {
   }
 
   onFormSubmitted() {
-    console.log(this.reactiveForm.value);
-    this.formData = this.reactiveForm.value;
-    this.productService.sendFormData(this.formData);
-    this.reactiveForm.reset({
-      productName: '',
-      id: '',
-      description: '',
-      details: {
-        category: '',
-        price: '',
-      },
-    });
+    if (this.reactiveForm.valid) {
+      const formData = this.reactiveForm.value;
+
+      if (formData.ID) {
+        // If ID exists, update the product
+
+        this.productService.updateProduct(formData.ID, formData).subscribe({
+          next: (response) => {
+            console.log('Product updated successfully:', response);
+            this.router.navigate(['/home']); // Redirect to product list
+          },
+          error: (error) => {
+            console.error('Error updating product:', error);
+          },
+        });
+      } else {
+        this.productService.sendFormData(formData);
+        this.reactiveForm.reset({
+          productName: '',
+          id: '',
+          description: '',
+          details: {
+            category: '',
+            price: '',
+          },
+        });
+      }
+    }
   }
 }

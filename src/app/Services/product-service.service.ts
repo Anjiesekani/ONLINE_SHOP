@@ -214,4 +214,11 @@ export class ProductService {
     //   error: (err) => this.errorSubject.next(err),
     // });
   }
+
+  updateProduct(productId: string, updatedProduct: any): Observable<any> {
+    console.log(productId);
+    const url = `https://online-project-cfbc7-default-rtdb.firebaseio.com/task/${productId}`;
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.put(url, updatedProduct, { headers });
+  }
 }

@@ -41,6 +41,8 @@ export class HomeComponent implements OnInit {
         // No search category, fetch all products
         this.productService.fetchAllProducts().subscribe({
           next: (products) => {
+            console.log(products);
+
             this.productList = products;
             this.isLoading = false; // Set to false after data is loaded
             console.log(this.productList);
@@ -91,6 +93,20 @@ export class HomeComponent implements OnInit {
   deleteProduct(ID: string) {
     this.productService.DeleteProduct(ID).subscribe((resp) => {
       this.handleProductSearch();
+    });
+  }
+
+  editProduct(product: Product) {
+    this.route.navigate(['/notify'], {
+      queryParams: {
+        id: product.id,
+        name: product.productName,
+        description: product.description || '',
+        image: product.image,
+        category: product.details.category || 'building',
+        price: product.details.price || '300-500',
+        ID: product.ID,
+      },
     });
   }
 }
