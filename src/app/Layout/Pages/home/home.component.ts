@@ -105,7 +105,6 @@ export class HomeComponent implements OnInit {
         image: product.image,
         category: product.details.category || 'building',
         price: product.details.price || '300-500',
-        ID: product.ID,
       },
     });
   }
