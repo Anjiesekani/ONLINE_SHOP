@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { HomePageModule } from './Layout/HomePage.module';
+import { ProductModule } from './Product/Product.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
@@ -17,7 +17,7 @@ import { LoggingInterceptorService } from './Services/logging-interceptor.servic
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    HomePageModule,
+    ProductModule,
     AngularFireModule.initializeApp({
       apiKey: 'AIzaSyCCXffBzbWqeuv5diURRvZg_mqcRGYFszk',
       authDomain: 'online-project-cfbc7.firebaseapp.com',

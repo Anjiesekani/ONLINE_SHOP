@@ -1,0 +1,48 @@
+.carousel-item img {
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+  /* max-height: 675px; */
+  max-height: 200px;
+  border-radius: 15px;
+}
+#carouselExampleInterval {
+  min-height: 200px; /* Set the desired height for the carousel */
+  overflow: hidden; /* Set the desired height for the carousel */
+}
+.custom-carousel {
+  width: 90%; /* Set the width of the carousel to 50% */
+  margin: 2em auto; /* Center the carousel horizontally */
+  border: 5px solid transparent; /* Add a transparent border */
+  border-radius: 10px; /* Set border radius for rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.carousel-control-prev,
+.carousel-control-next {
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Vertically center the buttons */
+  width: auto; /* Remove the default large button area */
+}
+
+.carousel-control-prev {
+  left: 0; /* Position at the extreme left */
+  margin-left: 20px; /* Add margin to the left */
+}
+
+.carousel-control-next {
+  right: 0; /* Position at the extreme right */
+  margin-right: 20px; /* Add margin to the right */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 30px; /* Adjust the icon size */
+  height: 30px;
+}
+
+/* .carousel-inner img {
+  width: 100%;          
+  height: auto;         
+  max-height: 675px;    
+  object-fit: cover;    
+} */

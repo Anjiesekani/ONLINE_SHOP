@@ -1,0 +1,8 @@
+.content {
+  flex: 1;
+  margin-top: 8em;
+}
+
+app-footer {
+  margin-top: auto;
+}

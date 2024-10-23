@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg" style="background-color: #c3fae8;">
+  <div class="container  container-fluid">
+    <div class="nav nav-list">
+      <div class="nav-item">
+        <a routerLink="/home" [queryParams]="{ category: '' }" [routerLinkActive]="'active'" class="nav-link">
+          <span>Home</span>
+        </a>
+      </div>
+      <div class="nav-item">
+        <a routerLink="/products" [queryParams]="{ category: 'building' }" [routerLinkActive]="'active'"
+          class="nav-link">
+          <span>Building Essentials</span>
+        </a>
+      </div>
+      <div class="nav-item">
+        <a routerLink="/products" [queryParams]="{ category: 'Plumbing' }" [routerLinkActive]="'active'"
+          class="nav-link">
+          <span>Plumbing</span>
+        </a>
+      </div>
+      <div class="nav-item">
+        <a routerLink="/products" [queryParams]="{ category: 'Painting' }" [routerLinkActive]="'active'"
+          class="nav-link">
+          <span>Painting</span>
+        </a>
+      </div>
+      <div class="nav-item">
+        <a routerLink="/products" [queryParams]="{ category: 'tools' }" [routerLinkActive]="'active'" class="nav-link">
+          <span>Tools & Equipments</span>
+        </a>
+      </div>
+      <div class="nav-item">
+        <a routerLink="/products" [queryParams]="{ category: 'Decor' }" [routerLinkActive]="'active'" class="nav-link">
+          <span>Decor & Households</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</nav>

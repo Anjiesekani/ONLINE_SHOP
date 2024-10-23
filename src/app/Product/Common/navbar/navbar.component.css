@@ -1,0 +1,46 @@
+.nav-list {
+  display: flex; /* Flexbox for layout */
+  flex-grow: 1; /* Allow the nav to grow */
+  justify-content: space-between; /* Space between nav items */
+  align-items: center; /* Align items vertically */
+}
+
+/* Nav item styles */
+.nav-item {
+  font-size: 1rem;
+  font-family: sans-serif;
+  color: whitesmoke; /* Text color for nav items */
+}
+
+/* Nav link styles */
+.nav-link {
+  text-decoration: none; /* Remove underline */
+  color: black; /* Default link color */
+  position: relative; /* Position for the underline */
+  display: inline-block; /* Allow padding and margin */
+  padding-bottom: 5px; /* Space for the underline */
+}
+
+/* Styles for the active nav link */
+.nav-link.active {
+  font-size: 1.2rem; /* Increased size for active link */
+  font-weight: bold; /* Bold for active link */
+}
+
+/* Underline effect */
+.nav-link::before {
+  content: "";
+  position: absolute; /* Absolute positioning for underline */
+  left: 0; /* Align to the left */
+  bottom: 0; /* Align to the bottom */
+  width: 0; /* Initially no width */
+  height: 2px; /* Thickness of the underline */
+  background-color: black; /* Color of the underline */
+  transition: width 0.3s ease; /* Animation for width */
+}
+
+/* Underline on hover and for active links */
+.nav-link:hover::before,
+.nav-link.active::before {
+  width: 100%; /* Full width on hover/active */
+}

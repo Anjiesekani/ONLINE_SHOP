@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'landing', pathMatch: 'full' },
+  { path: '', redirectTo: 'product', pathMatch: 'full' },
   {
-    path: 'landing',
+    path: 'product',
     loadChildren: () =>
-      import('./Layout/HomePage.module').then((m) => m.HomePageModule),
+      import('./Product/Product.module').then((m) => m.ProductModule),
   },
 ];
 

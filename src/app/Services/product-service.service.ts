@@ -5,7 +5,7 @@ import {
   HttpEventType,
   HttpHeaders,
 } from '@angular/common/http';
-import { Product } from '../Model/model';
+import { Product } from '../Product/Model/model';
 import { catchError, map, Observable, Subject, tap, throwError } from 'rxjs';
 import { LoginService } from './login-service';
 
@@ -182,15 +182,10 @@ export class ProductService {
       );
   }
 
-  // modifyProduct(id: number, patialData: any) {
-  //   let url = `https://online-project-cfbc7-default-rtdb.firebaseio.com/task/${id}.json`;
-  //   return this.http.patch(url, patialData);
-  // }
-
-  DeleteProduct(ID: string) {
+  DeleteProduct(id: string) {
     return this.http
       .delete(
-        `https://online-project-cfbc7-default-rtdb.firebaseio.com/task/${ID}.json`,
+        `https://online-project-cfbc7-default-rtdb.firebaseio.com/task/${id}.json`,
         { observe: 'events' }
       )
       .pipe(
@@ -220,5 +215,35 @@ export class ProductService {
     const url = `https://online-project-cfbc7-default-rtdb.firebaseio.com/task/${productId}`;
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.put(url, updatedProduct, { headers });
+  }
+
+  fetchProductsByCategory(category: string): Observable<Product[]> {
+    return this.http
+      .get<{ [key: string]: Product }>(
+        'https://online-project-cfbc7-default-rtdb.firebaseio.com/products.json' // Adjust the URL if needed
+      )
+      .pipe(
+        map((response) => {
+          const products: Product[] = [];
+          for (const key in response) {
+            if (response.hasOwnProperty(key)) {
+              const product = { ...response[key], id: key };
+              if (product.category === category) {
+                products.push(product);
+              }
+            }
+          }
+          return products;
+        }),
+        catchError((err) => {
+          const errorObj = {
+            statusCode: err.status,
+            errorMessage: err.message,
+            dateTime: new Date(),
+          };
+          this.loginService.logError(errorObj);
+          return throwError(() => err);
+        })
+      );
   }
 }

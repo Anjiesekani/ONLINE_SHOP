@@ -1,0 +1,11 @@
+.product-name {
+  font-size: 14px; /* Adjust this value as needed */
+  /* You can also add other styles like font-weight, color, etc. */
+}
+.product-card {
+  transition: border 0.3s ease; /* Smooth transition for the border */
+}
+
+.product-card:hover {
+  border: 2px solid #c3fae8; /* Outline effect on hover */
+}

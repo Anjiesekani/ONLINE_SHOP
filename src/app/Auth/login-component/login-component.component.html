@@ -1,0 +1,60 @@
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Launch Sign-In Modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content no-border">
+      <div class="modal-header ">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Sign In</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body ">
+        <!-- Sign-In Form with Validation -->
+        <form class="row g-3 needs-validation" novalidate>
+          <div class="col-md-6">
+            <label for="validationCustom01" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="validationCustom01" placeholder="Mark" required>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="validationCustom02" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="validationCustom02" placeholder="Otto" required>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <label for="validationCustomUsername" class="form-label">Username</label>
+            <div class="input-group has-validation">
+              <span class="input-group-text" id="inputGroupPrepend">&#64;</span>
+              <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend"
+                required>
+              <div class="invalid-feedback">
+                Please choose a username.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="validationCustomPassword" class="form-label">Password</label>
+            <div class="input-group has-validation">
+              <input type="password" class="form-control" id="validationCustomPassword" required>
+              <div class="invalid-feedback">
+                Please enter a password.
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer ">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" form="signInForm">Submit form</button>
+      </div>
+    </div>
+  </div>
+</div>

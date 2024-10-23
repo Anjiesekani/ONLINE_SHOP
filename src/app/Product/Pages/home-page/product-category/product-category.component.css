@@ -1,0 +1,32 @@
+.product-name {
+  font-size: 14px; /* Adjust this value as needed */
+  /* You can also add other styles like font-weight, color, etc. */
+}
+.product-card {
+  transition: border 0.3s ease; /* Smooth transition for the border */
+}
+
+.product-card:hover {
+  border: 2px solid #c3fae8; /* Outline effect on hover */
+}
+.category-section {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Faint shadow */
+  border: 1px solid #ddd; /* Light border */
+  padding: 0.5em 1em; /* Padding inside the section */
+  border-radius: 2px; /* Rounded corners for a softer look */
+  margin-bottom: 1.5em; /* Space between sections */
+}
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.category-header h2 {
+  margin: 0; /* Ensures the heading doesn't add extra space */
+}
+
+.category-header .btn {
+  margin: 0; /* Remove any extra margin on the button */
+}
