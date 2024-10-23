@@ -5,4 +5,8 @@ import { Component, ViewEncapsulation } from '@angular/core';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
 })
-export class NavbarComponent {}
+export class NavbarComponent {
+  onSearchClicked(arg0: string) {
+    throw new Error('Method not implemented.');
+  }
+}

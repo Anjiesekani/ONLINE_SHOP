@@ -1,9 +1,9 @@
 .carousel-item img {
   height: auto;
   width: 100%;
-  object-fit: cover;
+  object-fit: fill;
   /* max-height: 675px; */
-  max-height: 200px;
+  max-height: 250px;
   border-radius: 15px;
 }
 #carouselExampleInterval {

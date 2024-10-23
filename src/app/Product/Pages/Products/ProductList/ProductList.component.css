@@ -9,3 +9,8 @@
 .product-card:hover {
   border: 2px solid #c3fae8; /* Outline effect on hover */
 }
+
+.category-section {
+  border: none; /* Remove any borders */
+  /* Additional styling can be added here if needed */
+}

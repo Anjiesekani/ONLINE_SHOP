@@ -11,6 +11,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./ProductList.component.css'], // Make sure it's `styleUrls` not `styleUrl`,
 })
 export class ProductList implements OnInit {
+  products: any;
   constructor(
     private productService: ProductService,
     private activeRoute: ActivatedRoute,

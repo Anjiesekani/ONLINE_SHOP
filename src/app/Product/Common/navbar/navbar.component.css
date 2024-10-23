@@ -18,7 +18,6 @@
   color: black; /* Default link color */
   position: relative; /* Position for the underline */
   display: inline-block; /* Allow padding and margin */
-  padding-bottom: 5px; /* Space for the underline */
 }
 
 /* Styles for the active nav link */
