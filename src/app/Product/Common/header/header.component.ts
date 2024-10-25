@@ -9,9 +9,13 @@ import { ProductService } from '../../../Services/product-service.service';
 })
 export class HeaderComponent {
   constructor(private productService: ProductService) {}
+  currentCategory: string = '';
 
   router: Router = inject(Router);
-  onSearchClicked(value: string) {
-    this.router.navigate(['/landing'], { queryParams: { category: value } });
+  onSearchClicked(searchTerm: string): void {
+    this.router.navigate(['/products'], {
+      queryParams: { category: this.currentCategory, searchTerm: searchTerm },
+      queryParamsHandling: 'merge',
+    });
   }
 }

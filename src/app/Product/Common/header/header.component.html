@@ -1,4 +1,4 @@
-<header class="bg-secondary">
+<header class="bg-secondary ">
   <nav class=" navbar navbar-expand-lg  d-flex align-items-center">
     <div class="container container-fluid">
       <a class="navbar-brand me-auto" href="#">
@@ -12,26 +12,27 @@
         <div class="d-flex justify-content-center flex-grow-1">
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" #inputSearch />
-            <button class="btn btn-outline-success" type="submit" (click)="onSearchClicked(inputSearch.value)">
+            <button class="btn btn-outline-light" type="submit" (click)="onSearchClicked(inputSearch.value)">
               Search
             </button>
           </form>
         </div>
-        <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px">
+        <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll " style="--bs-scroll-height: ">
           <li class="nav-item">
             <a class="nav-link" aria-current="page" [routerLink]="'/login'">
               <i class="ri-user-3-line me-1"></i> Login/SignIn
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item ">
             <a class="nav-link" [routerLink]="'/notify'">
               <i class="ri-shopping-cart-2-line me-1"></i> Add Product
             </a>
           </li>
         </ul>
 
-        <app-navbar class="bg-secondary"></app-navbar>
       </div>
     </div>
   </nav>
 </header>
+
+<app-navbar class="bg-secondary "></app-navbar>

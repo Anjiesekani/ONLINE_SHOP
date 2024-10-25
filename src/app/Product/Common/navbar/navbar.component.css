@@ -15,7 +15,7 @@
 /* Nav link styles */
 .nav-link {
   text-decoration: none; /* Remove underline */
-  color: black; /* Default link color */
+  color: white; /* Default link color */
   position: relative; /* Position for the underline */
   display: inline-block; /* Allow padding and margin */
 }
@@ -31,15 +31,15 @@
   content: "";
   position: absolute; /* Absolute positioning for underline */
   left: 0; /* Align to the left */
-  bottom: 0; /* Align to the bottom */
+  bottom: 2px; /* Align to the bottom */
   width: 0; /* Initially no width */
   height: 2px; /* Thickness of the underline */
-  background-color: black; /* Color of the underline */
+  background-color: white; /* Color of the underline */
   transition: width 0.3s ease; /* Animation for width */
 }
 
 /* Underline on hover and for active links */
-.nav-link:hover::before,
+
 .nav-link.active::before {
   width: 100%; /* Full width on hover/active */
 }

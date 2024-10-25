@@ -1,107 +1,88 @@
-<!-- <section>
-  <div class="container">
-    <div class="row">
-      <h2 *ngIf="productList.length < 1" class="text-center">NO product found</h2>
-      <mat-spinner *ngIf="isLoading" class="mx-auto d-block"></mat-spinner>
-      <ng-container *ngIf="!isLoading">
-        <div class="col-lg-3 col-md-4 col-sm-6 mb-2" *ngFor="let product of productList"
-          (click)="openProductDetail(product)">
-          <div class="card product-card">
-            <div class="image-container" style="position: relative; width: 100%; height: 0; padding-top: 75%;">
-              <img class="card-img-top product-image" src="{{product.image}}" alt="{{ product.productName }}"
-                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" />
-            </div>
-            <div class="card-body">
-              <h3 class=" product-name card-title">{{product.productName}}</h3>
-              <p class="product-price">KSh: {{product.price}}</p>
-              <div class="d-flex justify-content-between">
-                <button class="btn btn-primary add-to-cart">Add to Cart</button>
-                <div>
-                  <button title="delete" class="btn btn-danger delete" (click)="deleteProduct(product.id)">
-                    <i class="ri-delete-bin-5-line"></i>
-                  </button>
-                  <button class="btn btn-warning" (click)="editProduct(product)">
-                    <i class="ri-edit-line"></i>
-                  </button>
-                </div>
-              </div> 
-              <div class="d-flex justify-content-between">
-                <button class="btn btn-secondary add-to-cart w-100">Add to Cart</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </ng-container>
-    </div>
-  </div>
-</section> -->
-
-
-
-
-
-
-
-
-
-
-
 <section>
   <div class="container">
     <div class="row">
       <!-- Sidebar - 30% Width (Left) -->
-      <div class="col-lg-4 col-md-5 mb-4">
-        <h2>Categories</h2>
-        <div class="list-group category-section">
-          <div class="list-group-item d-flex justify-content-between align-items-center">
-            <h5>Plumbing</h5>
-            <div class="dropdown">
-              <i class="ri-arrow-down-s-line" data-bs-toggle="dropdown" aria-expanded="false"></i>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Pipe Fittings</a></li>
-                <li><a class="dropdown-item" href="#">Hoses</a></li>
-                <li><a class="dropdown-item" href="#">Valves</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="list-group-item d-flex justify-content-between align-items-center">
-            <h5>Building Materials</h5>
-            <div class="dropdown">
-              <i class="ri-arrow-down-s-line" data-bs-toggle="dropdown" aria-expanded="false"></i>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Cement</a></li>
-                <li><a class="dropdown-item" href="#">Bricks</a></li>
-                <li><a class="dropdown-item" href="#">Sand</a></li>
-              </ul>
-            </div>
-          </div>
-          <!-- Add more categories as needed -->
-        </div>
-      </div>
-
-      <!-- Product List - 70% Width (Right) -->
-      <div class="col-lg-8 col-md-7 mb-4">
-        <h2>Products</h2>
-        <div class="row">
-          <!-- <h2 *ngIf="products.length < 1" class="text-center">NO products found</h2>
-          <mat-spinner *ngIf="isLoading" class="mx-auto d-block"></mat-spinner> -->
-          <ng-container *ngIf="!isLoading">
-            <div class="col-lg-4 col-md-6 mb-4" *ngFor="let product of products">
-              <div class="card product-card" (click)="openProductDetail(product)">
-                <div class="image-container" style="position: relative; width: 100%; height: 0; padding-top: 75%;">
-                  <img class="card-img-top product-image" [src]="product.image" alt="{{ product.productName }}"
-                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" />
-                </div>
-                <div class="card-body">
-                  <h3 class="product-name card-title">{{ product.productName }}</h3>
-                  <p class="product-price">KSh: {{ product.price }}</p>
-                  <div class="d-flex justify-content-between">
-                    <button class="btn btn-secondary add-to-cart w-100">Add to Cart</button>
-                  </div>
+      <div class="col-lg-3 col-md-5 mb-4 ">
+        <div class="sidebar">
+          <h2>CATEGORIES</h2>
+          <div class="accordion" id="categoryAccordion">
+            <!-- Plumbing Category -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="plumbingHeading">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#plumbingCollapse" aria-expanded="true" aria-controls="plumbingCollapse"
+                  [ngClass]="{ 'active-category': isCategoryActive('plumbing') }">
+                  Plumbing
+                </button>
+              </h2>
+              <div id="plumbingCollapse" class="accordion-collapse collapse show" aria-labelledby="plumbingHeading"
+                data-bs-parent="#categoryAccordion">
+                <div class="accordion-body">
+                  <ul class="list-group">
+                    <li class="list-group-item"><a href="#">Pipe Fittings</a></li>
+                    <li class="list-group-item"><a href="#">Hoses</a></li>
+                    <li class="list-group-item"><a href="#">Valves</a></li>
+                  </ul>
                 </div>
               </div>
             </div>
-          </ng-container>
+
+            <!-- Building Materials Category -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="buildingHeading">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#buildingCollapse" aria-expanded="false" aria-controls="buildingCollapse"
+                  [ngClass]="{ 'active-category': isCategoryActive('building') }">
+                  Building Materials
+                </button>
+              </h2>
+              <div id="buildingCollapse" class="accordion-collapse collapse" aria-labelledby="buildingHeading"
+                data-bs-parent="#categoryAccordion">
+                <div class="accordion-body">
+                  <ul class="list-group">
+                    <li class="list-group-item"><a href="#">Cement</a></li>
+                    <li class="list-group-item"><a href="#">Bricks</a></li>
+                    <li class="list-group-item"><a href="#">Sand</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Add more categories as needed -->
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Product List - 70% Width (Right) -->
+      <div class="col-lg-9 col-md-7 mb-4">
+        <div class="product-list-area">
+          <h2>{{ category | titlecase }}</h2>
+          <div class="row">
+            <div *ngIf="isLoading" class="text-center">
+              <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </div>
+            <ng-container *ngIf="!isLoading">
+              <h2 *ngIf="filteredProducts.length < 1" class="text-center">No products found</h2>
+              <div class="col-lg-3 col-md-6 mb-4" *ngFor="let product of filteredProducts">
+                <div class="card product-card" (click)="openProductDetail(product)">
+                  <div class="image-container" style="position: relative; width: 100%; height: 0; padding-top: 75%;">
+                    <img class="card-img-top product-image" [src]="product.image" alt="{{ product.productName }}"
+                      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" />
+                  </div>
+                  <div class="card-body">
+                    <h3 class="product-name card-title">{{ product.productName }}</h3>
+                    <p class="product-price">KSh: {{ product.price }}</p>
+                    <div class="d-flex justify-content-center">
+                      <button class="btn btn-secondary add-to-cart w-100">Add to Cart</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
         </div>
       </div>
     </div>

@@ -4,8 +4,8 @@ header {
   left: 0;
   right: 0;
   z-index: 1040;
-  border-bottom: 2px solid #f5f5f5;
-  background-color: #c3fae8;
+  border-bottom: 1px solid #f5f5f5;
+  background-color: #cccccc;
 }
 app-navbar {
   position: fixed;
@@ -19,6 +19,8 @@ img {
   width: 40px;
   height: 32px;
 }
-nav {
-  background-color: #c3fae8;
+.nav-link {
+  font-size: 1rem;
+  font-family: sans-serif;
+  color: white;
 }
